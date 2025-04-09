@@ -93,6 +93,7 @@ public class InsuranceQuotesTestSuiteTest {
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(898, 816);
         // Act
+        
         driver.FindElement(By.CssSelector(".btn")).Click();
         driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
         driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
