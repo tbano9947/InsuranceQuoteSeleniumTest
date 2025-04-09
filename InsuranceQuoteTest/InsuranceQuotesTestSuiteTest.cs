@@ -56,68 +56,69 @@ public class InsuranceQuotesTestSuiteTest {
     driver.FindElement(By.Id("btnSubmit")).Click();
         //Assert
         String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
-
-        //Assert
         Assert.That(actualValue, Is.EqualTo("$4500"));
-        //Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("4500"));
+     
   }
   [Test]
   public void insuranceQuote022Accident3Exp25Age() {
-    driver.Manage().Window.Size = new System.Drawing.Size(895, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
-    driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("234-098-6789");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("0");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("25");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("3");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("2");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("4500"));
-  }
+        //Arrange
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(942, 816);
+      
+        // Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
+        driver.FindElement(By.Id("lastName")).SendKeys("bano");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+
+        driver.FindElement(By.Id("postalCode")).Clear();
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+
+        driver.FindElement(By.Id("phone")).SendKeys("456-098-0987");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("25");
+        driver.FindElement(By.Id("experience")).SendKeys("3");
+        driver.FindElement(By.Id("accidents")).SendKeys("2");
+
+        driver.FindElement(By.Id("btnSubmit")).Click();
+
+        //Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$4500"));
+    }
   [Test]
   public void insuranceQuote034Accident10Exp35Age() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(898, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
-    driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.CssSelector(".form-row:nth-child(5)")).Click();
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("098-987-0987");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("35");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("10");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("4");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(driver.FindElement(By.Id("finalQuote")).Text, Is.EqualTo("No Insurance for you!!  Too many accidents - go take a course!"));
+        // Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
+        driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+
+        driver.FindElement(By.Id("postalCode")).Clear();
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+
+        driver.FindElement(By.Id("phone")).SendKeys("098-987-0987");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("35");
+        driver.FindElement(By.Id("experience")).SendKeys("10");
+        driver.FindElement(By.Id("accidents")).SendKeys("4");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+
+        Assert.That(actualValue, Is.EqualTo("No Insurance for you!!  Too many accidents - go take a course!"));
   }
   [Test]
   public void insuranceQuote04InvalidPhone27Age3Exp0Acc() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(900, 816);
+        //Act
     driver.FindElement(By.CssSelector(".btn")).Click();
     driver.FindElement(By.CssSelector(".card:nth-child(1) > div > .form-group:nth-child(1)")).Click();
     driver.FindElement(By.Id("firstName")).Click();
@@ -149,12 +150,15 @@ public class InsuranceQuotesTestSuiteTest {
       Actions builder = new Actions(driver);
       builder.MoveToElement(element, 0, 0).Perform();
     }
+        //Assert
     Assert.That(driver.FindElement(By.Id("phone-error")).Text, Is.EqualTo("Phone Number must follow the patterns 111-111-1111 or (111)111-1111"));
   }
   [Test]
   public void insuranceQuote05InvalidEmail28Age3Exp0Acc() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(904, 816);
+        //Act
     driver.FindElement(By.CssSelector(".btn")).Click();
     driver.FindElement(By.Id("firstName")).Click();
     driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
@@ -176,47 +180,42 @@ public class InsuranceQuotesTestSuiteTest {
     driver.FindElement(By.Id("accidents")).Click();
     driver.FindElement(By.Id("accidents")).SendKeys("0");
     driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
     Assert.That(driver.FindElement(By.Id("email-error")).Text, Is.EqualTo("Must be a valid email address"));
   }
-  [Test]
-  public void insuranceQuote06InvalidPostal35Age17Exp1Acc() {
-    driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-    driver.Manage().Window.Size = new System.Drawing.Size(908, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
-    driver.FindElement(By.Id("lastName")).SendKeys("bano");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("908-098-0987");
-    driver.FindElement(By.Id("email")).Click();
-    driver.FindElement(By.Id("email")).SendKeys("tasnimbano@gmail");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("35");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("17");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("1");
-    driver.FindElement(By.Id("btnSubmit")).Click();
+    [Test]
+    public void insuranceQuote06InvalidPostal35Age17Exp1Acc()
     {
-      var element = driver.FindElement(By.Id("btnSubmit"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element).Perform();
+        //Arrange
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(908, 816);
+        //Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
+        driver.FindElement(By.Id("lastName")).SendKeys("bano");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+        driver.FindElement(By.Id("postalCode")).SendKeys("560035");
+        driver.FindElement(By.Id("phone")).SendKeys("908-098-0987");
+        driver.FindElement(By.Id("email")).SendKeys("tasnimbano@gmail");
+        driver.FindElement(By.Id("age")).SendKeys("35");
+        driver.FindElement(By.Id("experience")).SendKeys("17");
+        driver.FindElement(By.Id("accidents")).SendKeys("1");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
+        // Scroll to error message (if needed)
+        var error = driver.FindElement(By.Id("postalCode-error"));
+        ((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].scrollIntoView(true);", error);
+
+        Assert.That(error.Text, Is.EqualTo("Postal Code must follow the pattern A1A 1A1"));
     }
-    {
-      var element = driver.FindElement(By.TagName("body"));
-      Actions builder = new Actions(driver);
-      builder.MoveToElement(element, 0, 0).Perform();
-    }
-    driver.FindElement(By.CssSelector(".col-md-2")).Click();
-    Assert.That(driver.FindElement(By.Id("postalCode-error")).Text, Is.EqualTo("Postal Code must follow the pattern A1A 1A1"));
-  }
-  [Test]
+
+    [Test]
   public void insuranceQuote08MissingAccident37Age8Exp() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(914, 816);
+        //Act
     driver.FindElement(By.CssSelector(".btn")).Click();
     driver.FindElement(By.Id("firstName")).Click();
     driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
@@ -239,12 +238,15 @@ public class InsuranceQuotesTestSuiteTest {
     driver.FindElement(By.Id("experience")).Click();
     driver.FindElement(By.Id("experience")).SendKeys("8");
     driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
     Assert.That(driver.FindElement(By.Id("accidents-error")).Text, Is.EqualTo("Number of accidents is required"));
   }
   [Test]
   public void insuranceQuote09MissingExperience45Age0Acc() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(916, 816);
+        //Act
     driver.FindElement(By.CssSelector(".btn")).Click();
     driver.FindElement(By.Id("firstName")).Click();
     driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
@@ -264,6 +266,7 @@ public class InsuranceQuotesTestSuiteTest {
     driver.FindElement(By.Id("accidents")).Click();
     driver.FindElement(By.Id("accidents")).SendKeys("0");
     driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
     {
       var element = driver.FindElement(By.Id("btnSubmit"));
       Actions builder = new Actions(driver);
@@ -277,190 +280,167 @@ public class InsuranceQuotesTestSuiteTest {
     driver.FindElement(By.CssSelector(".card-body > .form-group:nth-child(2)")).Click();
     Assert.That(driver.FindElement(By.Id("experience-error")).Text, Is.EqualTo("Years of experience is required"));
   }
-  [Test]
-  public void insuranceQuote101Accident0Exp22Age() {
-    driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-    driver.Manage().Window.Size = new System.Drawing.Size(918, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
-    driver.FindElement(By.Id("lastName")).SendKeys("bano");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("123-098-0987");
-    driver.FindElement(By.Id("email")).Click();
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("22");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("0");
-    driver.FindElement(By.CssSelector(".card-body > .form-group:nth-child(3)")).Click();
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("1");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("6000"));
-  }
-  [Test]
-  public void insuranceQuote111Accident5Exp28Age() {
-    driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-    driver.Manage().Window.Size = new System.Drawing.Size(922, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
-    driver.FindElement(By.Id("lastName")).SendKeys("bano");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).Click();
+    [Test]
+    public void insuranceQuote101Accident0Exp22Age()
     {
-      var element = driver.FindElement(By.Id("postalCode"));
-      Actions builder = new Actions(driver);
-      builder.DoubleClick(element).Perform();
+        //Assert
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(918, 816);
+        //Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
+        driver.FindElement(By.Id("lastName")).SendKeys("bano");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+        driver.FindElement(By.Id("phone")).SendKeys("123-098-0987");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("22");
+        driver.FindElement(By.Id("experience")).SendKeys("0");
+        driver.FindElement(By.Id("accidents")).SendKeys("1");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$6000"));
     }
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("123-098-4567");
-    driver.FindElement(By.Id("email")).Click();
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("28");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("5");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("1");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("4500"));
-  }
-  [Test]
-  public void insuranceQuote122Accident12Exp29Age() {
-    driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-    driver.Manage().Window.Size = new System.Drawing.Size(926, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
-    driver.FindElement(By.Id("lastName")).SendKeys("bano");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.CssSelector(".form-row:nth-child(4)")).Click();
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).Click();
+
+    [Test]
+    public void insuranceQuote111Accident5Exp28Age()
     {
-      var element = driver.FindElement(By.Id("postalCode"));
-      Actions builder = new Actions(driver);
-      builder.DoubleClick(element).Perform();
+        //Arrange
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(922, 816);
+        //Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
+        driver.FindElement(By.Id("lastName")).SendKeys("bano");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+
+        driver.FindElement(By.Id("postalCode")).Clear();
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+
+        driver.FindElement(By.Id("phone")).SendKeys("123-098-4567");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("28");
+        driver.FindElement(By.Id("experience")).SendKeys("5");
+        driver.FindElement(By.Id("accidents")).SendKeys("1");
+
+        driver.FindElement(By.Id("btnSubmit")).Click();
+
+        // Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$4500"));
     }
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("123-098-3456");
-    driver.FindElement(By.Id("email")).Click();
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("29");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("12");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("2");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("3000"));
-  }
-  [Test]
-  public void insuranceQuote131Accident12Exp40Age() {
-    driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-    driver.Manage().Window.Size = new System.Drawing.Size(930, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
-    driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).Click();
+    [Test]
+    public void insuranceQuote122Accident12Exp29Age()
     {
-      var element = driver.FindElement(By.Id("postalCode"));
-      Actions builder = new Actions(driver);
-      builder.DoubleClick(element).Perform();
+        //Arrange
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(926, 816);
+        //Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
+        driver.FindElement(By.Id("lastName")).SendKeys("bano");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+
+        driver.FindElement(By.Id("postalCode")).Clear();
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+
+        driver.FindElement(By.Id("phone")).SendKeys("123-098-3456");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("29");
+        driver.FindElement(By.Id("experience")).SendKeys("12");
+        driver.FindElement(By.Id("accidents")).SendKeys("2");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+
+        // Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$3000"));
     }
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("123-098-7890");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("40");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("12");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("1");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("2190"));
-  }
+
+    [Test]
+
+    public void insuranceQuote131Accident12Exp40Age()
+    {
+        //Arrange
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(930, 816);
+        //Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
+        driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+
+        driver.FindElement(By.Id("postalCode")).Clear();
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+
+        driver.FindElement(By.Id("phone")).SendKeys("123-098-7890");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("40");
+        driver.FindElement(By.Id("experience")).SendKeys("12");
+        driver.FindElement(By.Id("accidents")).SendKeys("1");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$2190"));
+    
+}
   [Test]
   public void insuranceQuote140Accident1Exp32Age() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(934, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
-    driver.FindElement(By.Id("lastName")).SendKeys("bano");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.CssSelector(".form-row:nth-child(4)")).Click();
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("123-098-0987");
-    driver.FindElement(By.Id("email")).Click();
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("32");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("1");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("0");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("4500"));
-  }
+        // Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
+        driver.FindElement(By.Id("lastName")).SendKeys("bano");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+        driver.FindElement(By.Id("postalCode")).Clear();
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+        driver.FindElement(By.Id("phone")).SendKeys("123-098-0987");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("32");
+        driver.FindElement(By.Id("experience")).SendKeys("1");
+        driver.FindElement(By.Id("accidents")).SendKeys("0");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        // Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$4500"));
+    
+}
   [Test]
   public void insuranceQuote150Accident0Exp45Age() {
-    driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
-    driver.Manage().Window.Size = new System.Drawing.Size(938, 816);
-    driver.FindElement(By.CssSelector(".btn")).Click();
-    driver.FindElement(By.Id("firstName")).Click();
-    driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
-    driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
-    driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
-    driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
-    driver.FindElement(By.Id("postalCode")).SendKeys("560035");
-    driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
-    driver.FindElement(By.Id("postalCode")).Click();
-    driver.FindElement(By.Id("postalCode")).Click();
-    {
-      var element = driver.FindElement(By.Id("postalCode"));
-      Actions builder = new Actions(driver);
-      builder.DoubleClick(element).Perform();
-    }
-    driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
-    driver.FindElement(By.Id("phone")).Click();
-    driver.FindElement(By.Id("phone")).SendKeys("123-345-4567");
-    driver.FindElement(By.Id("age")).Click();
-    driver.FindElement(By.Id("age")).SendKeys("45");
-    driver.FindElement(By.Id("experience")).Click();
-    driver.FindElement(By.Id("experience")).SendKeys("0");
-    driver.FindElement(By.Id("accidents")).Click();
-    driver.FindElement(By.Id("accidents")).SendKeys("0");
-    driver.FindElement(By.Id("btnSubmit")).Click();
-    Assert.That(vars["id=finalQuote"].ToString(), Is.EqualTo("6000"));
-  }
+        //Arrange
+        driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
+        driver.Manage().Window.Size = new System.Drawing.Size(938, 816);
+        //Act
+        driver.FindElement(By.CssSelector(".btn")).Click();
+        driver.FindElement(By.Id("firstName")).SendKeys("Ashish");
+        driver.FindElement(By.Id("lastName")).SendKeys("Kumar");
+        driver.FindElement(By.Id("address")).SendKeys("A 11 Hareesh Reddy Building");
+        driver.FindElement(By.Id("city")).SendKeys("Sarjapur Road, Carmelram Post Office");
+        driver.FindElement(By.Id("postalCode")).SendKeys("N1K 1W3");
+        driver.FindElement(By.Id("phone")).SendKeys("123-345-4567");
+        driver.FindElement(By.Id("email")).SendKeys("tasnim.bano.jsr@gmail.com");
+        driver.FindElement(By.Id("age")).SendKeys("45");
+        driver.FindElement(By.Id("experience")).SendKeys("0");
+        driver.FindElement(By.Id("accidents")).SendKeys("0");
+        driver.FindElement(By.Id("btnSubmit")).Click();
+        // Assert
+        String actualValue = driver.FindElement(By.Id("finalQuote")).GetAttribute("value");
+        Assert.That(actualValue, Is.EqualTo("$6000"));
+    
+}
   [Test]
   public void insuranceQuote07MissingAge5Exp0Acc() {
+        //Arrange
     driver.Navigate().GoToUrl("http://localhost/prog8173_A04/");
     driver.Manage().Window.Size = new System.Drawing.Size(911, 816);
+        //Act
     driver.FindElement(By.CssSelector(".btn")).Click();
     driver.FindElement(By.Id("firstName")).Click();
     driver.FindElement(By.Id("firstName")).SendKeys("tasnim");
@@ -480,6 +460,7 @@ public class InsuranceQuotesTestSuiteTest {
     driver.FindElement(By.Id("accidents")).Click();
     driver.FindElement(By.Id("accidents")).SendKeys("0");
     driver.FindElement(By.Id("btnSubmit")).Click();
+        //Assert
     {
       var element = driver.FindElement(By.Id("btnSubmit"));
       Actions builder = new Actions(driver);
